@@ -51,12 +51,12 @@ first(names, function(firstName){
 */
 
 function last(arr, cb){
-  cb(arr[arr.length])
+  cb(arr[arr.length-1])
 }
 
 // Do not edit the code below.
 last(names, function(lastName){
-  console.log('The last name in names is ' + lastName);
+  //console.log('The last name in names is ' + lastName);
   return lastName;
 });
 // Do not edit the code above.
@@ -92,12 +92,14 @@ multiply(4, 3, function(answer){
   If the name does not exist, invoke the callback with false as the argument.
 */
 
+
 function contains(arr, name, callback){
-  if(name){
-    callback(true);
-  }else{
-    callback(false);
+  let truth = false;
+  for(let i = 0; i < arr.length; i++){
+    if(arr[i] === name){
+      truth = true
   }
+}   callback(truth)
 }
 
 // Do not edit the code below.
@@ -156,7 +158,7 @@ uniq(names, function(uniqArr){
 
 function each(names, callback){
   for(let i = 0; i < names.length; i++){
-    callback(names[i], [i])
+    callback(names[i], i)
   }
 }
 
